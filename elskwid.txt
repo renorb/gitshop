@@ -1,0 +1,13 @@
+aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+ci = commit
+co = checkout
+empty = !git symbolic-ref HEAD refs/heads/empty && rm .git/index && git clean -fdx
+logs = log --oneline
+lola = log --all  --graph --decorate --pretty=oneline --abbrev-commit
+ls = branch -l
+notmerged = branch --no-merged master
+remotes = ls-remote
+rmd = !git status | grep deleted | cut -f 2 -d ':' | xargs git rm
+stat = status -sb
+track = !sh -c 'git branch --track $0 origin/$0'
+tracked = remote show origin
